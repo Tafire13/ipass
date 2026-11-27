@@ -103,8 +103,6 @@ CREATE TABLE problem_versions (
     library_policy        library_policy NOT NULL DEFAULT 'basic_only',
     semantic_threshold   numeric(5,2) NOT NULL DEFAULT 95.00
                               CHECK (semantic_threshold >= 0 AND semantic_threshold <= 100),
-    time_limit_ms         integer CHECK (time_limit_ms IS NULL OR time_limit_ms > 0),
-    memory_limit_mb       integer CHECK (memory_limit_mb IS NULL OR memory_limit_mb > 0),
     status                problem_status NOT NULL DEFAULT 'draft',
     created_at            timestamptz NOT NULL DEFAULT now(),
     UNIQUE (problem_id, version_no),
